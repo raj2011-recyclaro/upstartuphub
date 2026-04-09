@@ -9,13 +9,11 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
-const clientOrigin = process.env.CLIENT_ORIGIN || "http://localhost:3000";
 
 app.set("trust proxy", 1);
 app.use(helmet());
 app.use(
   cors({
-    origin: clientOrigin,
     methods: ["GET", "POST"],
     optionsSuccessStatus: 200
   })
