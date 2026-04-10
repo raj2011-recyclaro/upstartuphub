@@ -5,9 +5,9 @@ function Hero({ onPrimaryClick, onSecondaryClick }) {
   return (
     <header className="relative overflow-hidden bg-white">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-navy/10 to-transparent" />
-      <div className="section-shell relative pt-4 sm:pt-8 pb-2">
+      <div className="section-shell relative pt-2 sm:pt-4 pb-2">
         {/* Negative top margin pulls the nav and logo higher to offset transparent whitespace inside the logo file */}
-        <nav className="flex items-center justify-between -mt-12 sm:-mt-20 mb-[-3rem] py-2">
+        <nav className="flex items-center justify-between -mt-20 sm:-mt-22 mb-[-3rem] py-2">
           <a href="#top" aria-label="UP Startup Hub" className="flex items-center -ml-4 sm:-ml-8">
             <img
               src="/logo-removebg-preview.png"
