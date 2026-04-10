@@ -48,7 +48,7 @@ function HowItWorks() {
               style={{ animationDelay: `${index * 120}ms` }}
             >
               <div className="mb-6 flex items-center">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand-navy/10 bg-white text-sm font-bold text-brand-navy transition duration-300 group-hover:border-brand-orange group-hover:bg-brand-orange group-hover:text-white shadow-sm">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand-navy/10 bg-white text-sm font-bold text-brand-navy transition duration-300 group-hover:border-brand-blue group-hover:bg-brand-blue group-hover:text-white shadow-sm">
                   {item.step}
                 </span>
                 {index !== steps.length - 1 && (
@@ -66,3 +66,4 @@ function HowItWorks() {
 }
 
 export default HowItWorks;
+

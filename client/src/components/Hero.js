@@ -7,24 +7,22 @@ function Hero({ onPrimaryClick, onSecondaryClick }) {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-navy/10 to-transparent" />
       <div className="section-shell relative pt-2 sm:pt-4 pb-2">
         {/* Negative top margin pulls the nav and logo higher to offset transparent whitespace inside the logo file */}
-        <nav className="flex items-center justify-between -mt-20 sm:-mt-22 mb-[-3rem] py-2">
-          <a href="#top" aria-label="UP Startup Hub" className="flex items-center -ml-4 sm:-ml-8">
-            <img
-              src="/logo-removebg-preview.png"
-              alt="UP Startup Hub"
-              className="h-56 sm:h-72 w-auto object-contain object-left"
+        <nav className="flex items-center justify-between py-6">
+          <a href="#top" aria-label="UP Startup Hub" className="flex items-center">
+            <Logo 
+              className="h-10 sm:h-12 w-auto" 
             />
           </a>
           <div className="hidden items-center gap-8 text-sm font-semibold text-slate-600 md:flex">
-            <a href="#features" className="transition hover:text-brand-orangeDeep">
+            <a href="#features" className="transition hover:text-brand-blueDeep">
               Who Can Apply
             </a>
-            <a href="#how-it-works" className="transition hover:text-brand-orangeDeep">
+            <a href="#how-it-works" className="transition hover:text-brand-blueDeep">
               How It Works
             </a>
             <a
               href="#lead-form"
-              className="rounded-full bg-brand-orange px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-orangeDeep"
+              className="rounded-full bg-brand-blue px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-blueDeep"
             >
               Apply →
             </a>
@@ -49,7 +47,7 @@ function Hero({ onPrimaryClick, onSecondaryClick }) {
               <button
                 type="button"
                 onClick={onPrimaryClick}
-                className="rounded-full bg-brand-orange px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-900/20 transition hover:bg-brand-orangeDeep"
+                className="rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-blue/20 transition hover:bg-brand-blueDeep"
               >
                 Apply for Funding
               </button>
@@ -63,15 +61,15 @@ function Hero({ onPrimaryClick, onSecondaryClick }) {
             </div>
             <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-600">
               <div>
-                <p className="text-2xl font-bold text-brand-orangeDeep">Idea to Seed</p>
+                <p className="text-2xl font-bold text-brand-blueDeep">Idea to Seed</p>
                 <p>Support for early-stage startup journeys</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-brand-orangeDeep">UP Connected</p>
+                <p className="text-2xl font-bold text-brand-blueDeep">UP Connected</p>
                 <p>For founders based in or connected to Uttar Pradesh</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-brand-orangeDeep">High Potential</p>
+                <p className="text-2xl font-bold text-brand-blueDeep">High Potential</p>
                 <p>D2C, manufacturing, tech, and service-led growth stories</p>
               </div>
             </div>
@@ -79,77 +77,64 @@ function Hero({ onPrimaryClick, onSecondaryClick }) {
           {/* ── Premium Platform Graphic ── */}
           <div className="fade-in-up relative flex w-full max-w-[500px] flex-col justify-center lg:justify-self-end">
             <style>{`
-              .slide-up-glow { animation: slideUpGlow 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(15px); }
-              @keyframes slideUpGlow { to { opacity: 1; transform: translateY(0); } }
-              .line-draw { animation: lineDraw 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; transform-origin: left; transform: scaleX(0); }
-              @keyframes lineDraw { to { transform: scaleX(1); } }
+              @keyframes float-subtle {
+                0%, 100% { transform: translateY(0px) translateX(0px); }
+                25% { transform: translateY(-3px) translateX(2px); }
+                50% { transform: translateY(2px) translateX(-1px); }
+                75% { transform: translateY(-1px) translateX(-3px); }
+              }
+              @keyframes pulse-subtle {
+                0%, 100% { opacity: 0.8; transform: scale(1); }
+                50% { opacity: 1; transform: scale(1.02); }
+              }
+              .animate-float { animation: float-subtle 8s ease-in-out infinite; }
+              .animate-pulse-slow { animation: pulse-subtle 4s ease-in-out infinite; }
             `}</style>
 
-            {/* Main execution framework panel */}
-            <div className="relative rounded-[2rem] border border-slate-200 bg-white/60 p-1 shadow-2xl backdrop-blur-xl">
-              <div className="relative overflow-hidden rounded-[1.8rem] bg-white px-7 py-9 shadow-sm">
-                {/* Subtle grid background */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(11,31,58,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(11,31,58,0.03)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]" />
-
-                {/* Header */}
-                <div className="relative z-10 mb-8 flex items-center justify-between border-b border-slate-100 pb-4 slide-up-glow">
-                  <div className="font-sans text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase">SECTORS_WE_COBUILD</div>
-                  <div className="flex gap-1.5">
-                    <div className="h-1.5 w-1.5 rounded-full bg-slate-200" />
-                    <div className="h-1.5 w-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_rgba(2,132,199,0.4)]" />
-                    <div className="h-1.5 w-1.5 rounded-full bg-brand-orange shadow-[0_0_10px_rgba(249,115,22,0.8)]" />
-                  </div>
-                </div>
-
-                {/* Network Diagram */}
-                <div className="relative z-10 mt-4 flex flex-col items-center pb-2">
-                  {/* Center Node */}
-                  <div className="relative z-20 flex h-12 w-28 items-center justify-center rounded-xl bg-brand-navy shadow-lg shadow-brand-navy/20 slide-up-glow">
-                    <span className="font-bold tracking-widest text-white text-xs">UP HUB</span>
-                  </div>
-                  
-                  {/* Central Trunk */}
-                  <div className="absolute top-12 bottom-6 w-px bg-gradient-to-b from-brand-navy via-brand-accent/40 to-transparent slide-up-glow" />
-                  
-                  {/* Satellite Branches */}
-                  <div className="mt-8 flex w-full flex-col gap-6">
-                    {[
-                      { name: "DroneTech", align: "left" },
-                      { name: "AgriTech", align: "right" },
-                      { name: "FinTech", align: "left" },
-                      { name: "DeepTech", align: "right" },
-                      { name: "D2C Brands", align: "left" },
-                      { name: "AI & SaaS", align: "right" }
-                    ].map((tag, i) => (
-                      <div key={tag.name} className={`relative flex w-1/2 ${tag.align === "left" ? "self-start justify-end pr-5" : "self-end justify-start pl-5"} slide-up-glow`} style={{ animationDelay: `${0.2 + i * 0.1}s` }}>
-                        {/* Connecting Wire */}
-                        <div className={`absolute top-1/2 h-px w-5 bg-brand-accent/20 ${tag.align === "left" ? "right-0" : "left-0"}`} />
-                        {/* Connecting Dot */}
-                        <div className={`absolute top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full box-content border-2 border-white bg-brand-accent shadow-sm ${tag.align === "left" ? "-right-[3px]" : "-left-[3px]"}`} />
-                        
-                        <div className="flex items-center rounded-xl border border-slate-100 bg-white/90 px-4 py-2 text-xs font-semibold text-brand-navy shadow-sm transition duration-300 hover:scale-105 hover:border-brand-accent hover:text-brand-accent cursor-default">
-                          {tag.name}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Statement box */}
-                <div className="relative z-10 mt-10 rounded-xl border border-slate-100 bg-brand-lightGrey/80 p-4 shadow-sm slide-up-glow" style={{ animationDelay: "0.8s" }}>
-                  <div className="flex items-start gap-3">
-                    <svg className="mt-0.5 h-4 w-4 shrink-0 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <p className="text-[13px] font-medium leading-relaxed text-slate-600">
-                      We operate as your <span className="font-bold text-brand-navy">co-builders</span>, driving execution from day one through to global scale.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Ambient glow in the panel */}
-                <div className="pointer-events-none absolute -bottom-10 -right-10 h-48 w-48 rounded-full bg-brand-accent/5 blur-[50px]" />
+            {/* Main Showcase Panel */}
+            <div className="relative flex aspect-square w-full items-center justify-center p-2">
+              {/* Background Orbits */}
+              <div className="absolute h-[80%] w-[80%] rounded-full border border-slate-100 bg-brand-lightGrey/20" />
+              <div className="absolute h-[55%] w-[55%] rounded-full border border-slate-100/50" />
+              
+              {/* Central Core */}
+              <div className="relative z-20 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-brand-navy shadow-2xl shadow-brand-navy/30 animate-pulse-slow">
+                <span className="text-[10px] font-bold tracking-[0.2em] text-blue-300">CORE</span>
+                <span className="mt-1 font-bold tracking-widest text-white text-xs">UP HUB</span>
               </div>
+
+              {/* Floating Sector Tags */}
+              <div className="absolute inset-0 z-10">
+                {[
+                  { name: "DroneTech", top: "15%", left: "20%", delay: "0s" },
+                  { name: "AgriTech", top: "25%", right: "10%", delay: "1.2s" },
+                  { name: "FinTech", bottom: "25%", left: "5%", delay: "2.5s" },
+                  { name: "DeepTech", bottom: "18%", right: "15%", delay: "0.8s" },
+                  { name: "D2C Brands", top: "45%", left: "8%", delay: "3s" },
+                  { name: "AI & SaaS", bottom: "40%", right: "8%", delay: "1.8s" }
+                ].map((tag, i) => (
+                  <div 
+                    key={tag.name} 
+                    className="absolute transition-all duration-700 ease-out animate-float"
+                    style={{ 
+                      top: tag.top, 
+                      left: tag.left, 
+                      right: tag.right, 
+                      bottom: tag.bottom,
+                      animationDelay: tag.delay
+                    }}
+                  >
+                    <div className="flex items-center gap-2 rounded-full border border-white bg-white/90 px-4 py-2 text-[11px] font-bold text-brand-navy shadow-lg shadow-black/5 hover:scale-110 hover:border-brand-blue cursor-pointer transition transform">
+                      <div className="h-1.5 w-1.5 rounded-full bg-brand-blue animate-pulse" />
+                      {tag.name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Ambient Glows around the cloud */}
+              <div className="pointer-events-none absolute -bottom-10 -right-10 h-64 w-64 rounded-full bg-brand-blue/5 blur-[80px]" />
+              <div className="pointer-events-none absolute -top-10 -left-10 h-64 w-64 rounded-full bg-brand-cyan/5 blur-[80px]" />
             </div>
           </div>
         </div>
@@ -159,3 +144,4 @@ function Hero({ onPrimaryClick, onSecondaryClick }) {
 }
 
 export default Hero;
+

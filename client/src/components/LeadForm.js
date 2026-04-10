@@ -111,7 +111,7 @@ function LeadForm() {
         </div>
         <div className="mx-auto mt-14 max-w-4xl">
           <div className="grid gap-0 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="border-l-4 border-brand-orange bg-brand-lightGrey px-8 py-10 sm:px-10">
+            <div className="border-l-4 border-brand-blue bg-brand-lightGrey px-8 py-10 sm:px-10">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-accent">
                 Founder Intake
               </p>
@@ -129,7 +129,7 @@ function LeadForm() {
                   "Funding and onboarding for selected startups"
                 ].map((point) => (
                   <div key={point} className="flex items-start gap-3">
-                    <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-brand-orange/10 text-brand-orange">
+                    <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
                       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
                         <path
                           d="m5 13 4 4L19 7"
@@ -232,7 +232,7 @@ function LeadForm() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-orange px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-orangeDeep disabled:cursor-not-allowed disabled:bg-slate-400"
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-blueDeep disabled:cursor-not-allowed disabled:bg-slate-400"
                 >
                   {loading ? "Submitting..." : "Submit Details"}
                 </button>
@@ -246,3 +246,4 @@ function LeadForm() {
 }
 
 export default LeadForm;
+

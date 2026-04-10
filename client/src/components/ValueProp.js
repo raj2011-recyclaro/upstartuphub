@@ -10,10 +10,10 @@ function ValueProp() {
     <section className="py-20 sm:py-24">
       <div className="section-shell">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.02fr]">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-orange-100 to-orange-50 border border-orange-200 p-8 text-slate-900 shadow-sm sm:p-10">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-blue-100 to-blue-50 border border-blue-200 p-8 text-slate-900 shadow-sm sm:p-10">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.8),_transparent_60%)]" />
             <div className="relative">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-orangeDeep">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-blueDeep">
                 Why UP Startup Hub
               </p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl">
@@ -27,7 +27,7 @@ function ValueProp() {
               <ul className="mt-8 space-y-4">
                 {valuePoints.map((point) => (
                   <li key={point} className="flex items-center gap-3 text-sm font-medium text-slate-700 sm:text-base">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-orange/10 text-brand-orangeDeep">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blueDeep">
                       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
                         <path
                           d="m5 13 4 4L19 7"
@@ -52,25 +52,25 @@ function ValueProp() {
                   Funding support for credible growth stories
                 </p>
               </div>
-              <div className="rounded-[1.5rem] bg-orange-50 p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-brand-orangeDeep">Mentorship</p>
+              <div className="rounded-[1.5rem] bg-blue-50 p-6">
+                <p className="text-xs uppercase tracking-[0.2em] text-brand-blueDeep">Mentorship</p>
                 <p className="mt-3 text-2xl font-semibold text-slate-900">
                   Founder-focused advice that turns into action
                 </p>
               </div>
-              <div className="rounded-[1.5rem] bg-amber-50 p-6 sm:col-span-2">
-                <p className="text-xs uppercase tracking-[0.2em] text-brand-orangeDeep">
+              <div className="rounded-[1.5rem] bg-teal-50 p-6 sm:col-span-2">
+                <p className="text-xs uppercase tracking-[0.2em] text-brand-blueDeep">
                   Industry Connections
                 </p>
                 <p className="mt-3 text-2xl font-semibold text-slate-900">
                   Powerful networks across sectors that help founders build, sell, and scale faster
                 </p>
-                <div className="mt-6 h-3 overflow-hidden rounded-full bg-orange-100">
-                  <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-brand-orange to-brand-orangeDeep" />
+                <div className="mt-6 h-3 overflow-hidden rounded-full bg-blue-100">
+                  <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-brand-blue to-brand-blueDeep" />
                 </div>
               </div>
             </div>
-            <div className="mt-8 rounded-[1.5rem] border border-dashed border-brand-orange/20 bg-brand-cream p-6">
+            <div className="mt-8 rounded-[1.5rem] border border-dashed border-brand-blue/20 bg-brand-cream p-6">
               <p className="text-sm font-semibold text-slate-900">From UP to Global.</p>
               <p className="mt-3 text-sm leading-7 text-slate-600">
                 Instead of fragmented advice, founders get one platform that combines funding,
@@ -85,3 +85,4 @@ function ValueProp() {
 }
 
 export default ValueProp;
+

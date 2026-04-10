@@ -9,7 +9,7 @@
  *   iconOnly   – render just the house-rocket icon (no wordmark).
  *                Useful for the hero animated orb.
  */
-function Logo({ textColor = "#2D3748", className = "", iconOnly = false }) {
+function Logo({ primaryColor = "#1A428A", textColor = "#2D3748", className = "", iconOnly = false }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,69 +21,90 @@ function Logo({ textColor = "#2D3748", className = "", iconOnly = false }) {
       {/* ── House outline ── */}
       <path
         d="M 8 103 L 8 48 L 49 5 L 90 48 L 90 70 L 75 70 L 75 103 Z"
-        stroke="#F97316"
+        stroke={primaryColor}
         strokeWidth="4.5"
         strokeLinejoin="round"
         strokeLinecap="round"
       />
 
-      {/* ── Rocket (slight counter-clockwise tilt to match original) ── */}
-      <g transform="translate(46,56) rotate(-8)">
-        {/* Capsule body */}
+      {/* ── Realistic Rocket ── */}
+      <g transform="translate(46,55) rotate(-5)">
+        {/* Exhaust Flame (Layered) */}
+        <path d="M -4 20 C -6 32 -10 38 -4 42" stroke={primaryColor} strokeWidth="1.5" strokeLinecap="round" className="opacity-40" />
+        <path d="M 0 20 L 0 44" stroke={primaryColor} strokeWidth="2" strokeLinecap="round" className="opacity-60" />
+        <path d="M 4 20 C 6 32 10 38 4 42" stroke={primaryColor} strokeWidth="1.5" strokeLinecap="round" className="opacity-40" />
+        
+        {/* Fins (Aerodynamic & Curved) */}
         <path
-          d="M 0 -24 C -10 -24 -12 -10 -12 0 L -12 13 C -8 18 8 18 12 13 L 12 0 C 12 -10 10 -24 0 -24 Z"
-          stroke="#F97316"
-          strokeWidth="3"
+          d="M -13 8 L -24 30 L -4 18 Z"
+          fill={primaryColor}
+          className="opacity-20"
+        />
+        <path
+          d="M -13 8 L -24 30 L -4 18 Z"
+          stroke={primaryColor}
+          strokeWidth="2"
           strokeLinejoin="round"
         />
-        {/* Porthole window */}
-        <circle cx="0" cy="-5" r="5.5" stroke="#F97316" strokeWidth="3" />
-        {/* Left fin */}
         <path
-          d="M -12 7 L -21 25 L -3 17 Z"
-          stroke="#F97316"
+          d="M 13 8 L 24 30 L 4 18 Z"
+          fill={primaryColor}
+          className="opacity-20"
+        />
+        <path
+          d="M 13 8 L 24 30 L 4 18 Z"
+          stroke={primaryColor}
+          strokeWidth="2"
+          strokeLinejoin="round"
+        />
+
+        {/* Main Body (Segmented) */}
+        <path
+          d="M 0 -28 C -12 -28 -14 -12 -14 0 L -14 16 C -8 22 8 22 14 16 L 14 0 C 14 -12 12 -28 0 -28 Z"
+          stroke={primaryColor}
           strokeWidth="2.5"
           strokeLinejoin="round"
         />
-        {/* Right fin */}
+        {/* Nose Cone Tip */}
         <path
-          d="M 12 7 L 21 25 L 3 17 Z"
-          stroke="#F97316"
-          strokeWidth="2.5"
-          strokeLinejoin="round"
+          d="M 0 -28 C -6 -28 -8 -22 -9 -18 L 9 -18 C 8 -22 6 -28 0 -28 Z"
+          fill={primaryColor}
+          className="opacity-10"
         />
-        {/* Exhaust flames */}
-        <path d="M -5 18 C -7 26 -11 33 -6 37" stroke="#F97316" strokeWidth="2" strokeLinecap="round" />
-        <path d="M 0 18 L 0 38" stroke="#F97316" strokeWidth="2" strokeLinecap="round" />
-        <path d="M 5 18 C 7 26 11 33 6 37" stroke="#F97316" strokeWidth="2" strokeLinecap="round" />
+        
+        {/* Porthole (Detailed) */}
+        <circle cx="0" cy="-6" r="6" stroke={primaryColor} strokeWidth="2.5" />
+        <circle cx="0" cy="-6" r="3" fill={primaryColor} className="opacity-20" />
       </g>
 
-      {/* ── Wordmark (suppressed in iconOnly mode) ── */}
+      {/* ── Wordmark (Sleeker weights) ── */}
       {!iconOnly && (
         <>
-          {/* Vertical orange divider bar */}
-          <rect x="100" y="22" width="3.5" height="62" rx="1.75" fill="#F97316" />
+          {/* Vertical divider */}
+          <rect x="100" y="24" width="2" height="58" rx="1" fill={primaryColor} opacity="0.3" />
 
-          {/* "UP" – extra-bold orange */}
+          {/* "UP" – Bold but not heavy */}
           <text
             x="114"
             y="79"
-            fontFamily="Poppins, sans-serif"
-            fontWeight="800"
-            fontSize="66"
-            fill="#F97316"
+            fontFamily="Outfit, sans-serif"
+            fontWeight="700"
+            fontSize="68"
+            fill={primaryColor}
+            letterSpacing="-0.02em"
           >
             UP
           </text>
 
-          {/* "Startuphub.com" – bold, colour controlled by prop */}
+          {/* "Startuphub.com" – Medium/Sleek */}
           <text
-            x="211"
+            x="215"
             y="79"
-            fontFamily="Poppins, sans-serif"
-            fontWeight="700"
-            fontSize="63"
+            fontFamily="Outfit, sans-serif"
+            fontWeight="500"
+            fontSize="64"
             fill={textColor}
+            letterSpacing="-0.01em"
           >
             Startuphub.com
           </text>
@@ -94,3 +115,4 @@ function Logo({ textColor = "#2D3748", className = "", iconOnly = false }) {
 }
 
 export default Logo;
+

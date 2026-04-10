@@ -83,7 +83,7 @@ function Features() {
               className="group fade-in-up rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-navy/20 hover:shadow-md"
               style={{ animationDelay: `${index * 120}ms` }}
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-navy/5 text-brand-navy transition duration-300 group-hover:bg-brand-orange/10 group-hover:text-brand-orange">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-navy/5 text-brand-navy transition duration-300 group-hover:bg-brand-blue/10 group-hover:text-brand-blue">
                 <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
                   {feature.icon}
                 </svg>
@@ -99,3 +99,4 @@ function Features() {
 }
 
 export default Features;
+

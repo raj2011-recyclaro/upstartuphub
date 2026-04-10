@@ -1,3 +1,4 @@
+import Logo from "./Logo";
 const footerLinks = [
   { label: "About", href: "#features" },
   { label: "Contact", href: "#lead-form" },
@@ -43,15 +44,11 @@ function Footer() {
       <div className="section-shell">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <a href="#top" aria-label="UP Startup Hub" className="flex items-center -ml-4 sm:-ml-8">
-              <img
-                src="/logo-removebg-preview.png"
-                alt="UP Startup Hub"
-                className="h-48 sm:h-64 w-auto object-contain object-left"
-                style={{
-                  filter:
-                    "brightness(0) invert(1)"
-                }}
+            <a href="#top" aria-label="UP Startup Hub" className="flex items-center">
+              <Logo 
+                primaryColor="#fff" 
+                textColor="#fff" 
+                className="h-10 sm:h-12 w-auto" 
               />
             </a>
             <p className="mt-4 max-w-xl text-sm leading-7 text-sky-100/60">
@@ -73,7 +70,7 @@ function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={link.label}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-sky-100/10 bg-white/5 transition hover:bg-brand-orange hover:border-brand-orange hover:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-sky-100/10 bg-white/5 transition hover:bg-brand-blue hover:border-brand-blue hover:text-white"
               >
                 <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
                   {link.icon}
@@ -86,8 +83,9 @@ function Footer() {
           Copyright © {new Date().getFullYear()} UP Startup Hub. All rights reserved.
         </div>
       </div>
-    </footer>
+      </footer>
   );
 }
 
 export default Footer;
+
