@@ -39,16 +39,23 @@ const socialLinks = [
 
 function Footer() {
   return (
-    <footer id="footer" className="bg-slate-950 py-12 text-slate-300">
+    <footer id="footer" className="bg-brand-navy py-12 text-sky-100/70">
       <div className="section-shell">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <a href="#top" className="text-xl font-extrabold tracking-tight text-white">
-              UPStartupHub<span className="text-brand-emerald">.com</span>
+            <a href="#top" aria-label="UP Startup Hub" className="flex items-center">
+              <img
+                src="/logo-removebg-preview.png"
+                alt="UP Startup Hub"
+                className="h-32 sm:h-40 w-auto object-contain"
+                style={{
+                  filter:
+                    "brightness(0) invert(1)"
+                }}
+              />
             </a>
-            <p className="mt-4 max-w-xl text-sm leading-7 text-slate-400">
-              Connecting startups across Uttar Pradesh with trusted mentors, valuable
-              opportunities, and support that helps founders grow with confidence.
+            <p className="mt-4 max-w-xl text-sm leading-7 text-sky-100/60">
+              Everything your startup needs in one place. From UP to Global.
             </p>
           </div>
           <div className="flex flex-wrap gap-6 text-sm">
@@ -66,7 +73,7 @@ function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={link.label}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-800 bg-slate-900 transition hover:border-brand-blue hover:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-sky-100/10 bg-white/5 transition hover:bg-brand-orange hover:border-brand-orange hover:text-white"
               >
                 <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
                   {link.icon}
@@ -75,8 +82,8 @@ function Footer() {
             ))}
           </div>
         </div>
-        <div className="mt-10 border-t border-slate-800 pt-6 text-sm text-slate-500">
-          Copyright © {new Date().getFullYear()} UPStartupHub. All rights reserved.
+        <div className="mt-10 border-t border-sky-100/10 pt-6 text-sm text-sky-100/50">
+          Copyright © {new Date().getFullYear()} UP Startup Hub. All rights reserved.
         </div>
       </div>
     </footer>

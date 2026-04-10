@@ -94,40 +94,42 @@ function LeadForm() {
   };
 
   const inputClassName =
-    "mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-brand-blue focus:ring-4 focus:ring-blue-100";
+    "mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-brand-navy focus:ring-4 focus:ring-brand-navy/5 shadow-sm";
 
   return (
     <section id="lead-form" className="bg-white py-20 sm:py-24">
       <div className="section-shell">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-amber">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-accent">
             Get Started
           </p>
-          <h2 className="section-title mt-4">Get Started with UPStartupHub</h2>
+          <h2 className="section-title mt-4 text-brand-navy">Ready to Build Your Startup?</h2>
           <p className="section-copy mx-auto">
-            Share a few details about your startup and our team will reach out with the most
-            relevant next steps.
+            Join UP Startup Hub and get access to everything you need to turn your idea into a
+            successful business.
           </p>
         </div>
         <div className="mx-auto mt-14 max-w-4xl">
-          <div className="grid gap-0 overflow-hidden rounded-[2rem] border border-slate-200 bg-brand-slate shadow-soft lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="bg-brand-blue px-8 py-10 text-white sm:px-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-100">
+          <div className="grid gap-0 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="border-l-4 border-brand-orange bg-brand-lightGrey px-8 py-10 sm:px-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-accent">
                 Founder Intake
               </p>
-              <h3 className="mt-4 text-3xl font-bold tracking-tight">Move from interest to action</h3>
-              <p className="mt-5 text-base leading-8 text-blue-100">
-                Founders can use this form to start the conversation around mentorship,
-                opportunities, partnerships, and ways to leverage funds more effectively.
+              <h3 className="mt-4 text-3xl font-bold tracking-tight text-brand-navy">
+                Apply now and let us build with you
+              </h3>
+              <p className="mt-5 text-base leading-8 text-slate-600">
+                Tell us about your startup and we will reach out with the right next step around
+                funding, mentorship, or strategic support.
               </p>
               <div className="mt-10 space-y-5">
                 {[
-                  "Quick initial review of your startup stage",
-                  "Mentor and ecosystem alignment support",
-                  "Relevant opportunities and funding pathways"
+                  "Initial review and founder discussion",
+                  "Mentorship and evaluation support",
+                  "Funding and onboarding for selected startups"
                 ].map((point) => (
                   <div key={point} className="flex items-start gap-3">
-                    <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-white/10">
+                    <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-brand-orange/10 text-brand-orange">
                       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
                         <path
                           d="m5 13 4 4L19 7"
@@ -138,7 +140,7 @@ function LeadForm() {
                         />
                       </svg>
                     </span>
-                    <p className="text-sm text-blue-100">{point}</p>
+                    <p className="text-sm text-slate-600 font-medium">{point}</p>
                   </div>
                 ))}
               </div>
@@ -230,7 +232,7 @@ function LeadForm() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-navy disabled:cursor-not-allowed disabled:bg-slate-400"
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-orange px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-orangeDeep disabled:cursor-not-allowed disabled:bg-slate-400"
                 >
                   {loading ? "Submitting..." : "Submit Details"}
                 </button>

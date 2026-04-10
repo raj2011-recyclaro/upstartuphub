@@ -4,18 +4,24 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          blue: "#1E3A8A",
-          emerald: "#10B981",
-          amber: "#F59E0B",
-          slate: "#F9FAFB",
-          navy: "#10245C"
+          orange: "#F97316",
+          orangeDeep: "#C2410C",
+          orangeSoft: "#FED7AA",
+          cream: "#FFF7ED",
+          slate: "#FFFDF8",
+          ink: "#1F2937",
+          gold: "#FDBA74",
+          navy: "#0B1F3A",
+          lightGrey: "#F7F9FC",
+          accent: "#0284c7",       // Ocean Blue
+          accentLight: "#bae6fd"   // Soft Sky Blue
         }
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"]
       },
       boxShadow: {
-        soft: "0 20px 50px rgba(15, 23, 42, 0.08)"
+        soft: "0 24px 70px rgba(194, 65, 12, 0.14)"
       }
     }
   },
