@@ -43,11 +43,11 @@ function Footer() {
       <div className="section-shell">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <a href="#top" aria-label="UP Startup Hub" className="flex items-center">
+            <a href="#top" aria-label="UP Startup Hub" className="flex items-center -ml-4 sm:-ml-8">
               <img
                 src="/logo-removebg-preview.png"
                 alt="UP Startup Hub"
-                className="h-32 sm:h-40 w-auto object-contain"
+                className="h-48 sm:h-64 w-auto object-contain object-left"
                 style={{
                   filter:
                     "brightness(0) invert(1)"

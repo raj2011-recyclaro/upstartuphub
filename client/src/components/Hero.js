@@ -5,14 +5,14 @@ function Hero({ onPrimaryClick, onSecondaryClick }) {
   return (
     <header className="relative overflow-hidden bg-white">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-navy/10 to-transparent" />
-      <div className="section-shell relative pt-0 pb-2">
+      <div className="section-shell relative pt-4 sm:pt-8 pb-2">
         {/* Negative top margin pulls the nav and logo higher to offset transparent whitespace inside the logo file */}
-        <nav className="flex items-center justify-between -mt-6 sm:-mt-10 py-2">
-          <a href="#top" aria-label="UP Startup Hub" className="flex items-center">
+        <nav className="flex items-center justify-between -mt-12 sm:-mt-20 mb-[-3rem] py-2">
+          <a href="#top" aria-label="UP Startup Hub" className="flex items-center -ml-4 sm:-ml-8">
             <img
               src="/logo-removebg-preview.png"
               alt="UP Startup Hub"
-              className="h-32 sm:h-40 w-auto object-contain"
+              className="h-56 sm:h-72 w-auto object-contain object-left"
             />
           </a>
           <div className="hidden items-center gap-8 text-sm font-semibold text-slate-600 md:flex">
@@ -30,7 +30,7 @@ function Hero({ onPrimaryClick, onSecondaryClick }) {
             </a>
           </div>
         </nav>
-        <div className="grid items-center gap-12 py-8 lg:grid-cols-[1.05fr_0.95fr] lg:py-14">
+        <div className="grid items-center gap-12 pt-0 pb-8 lg:grid-cols-[1.05fr_0.95fr] lg:pt-0 lg:pb-14">
           <div className="fade-in-up">
             <span className="inline-flex rounded-full border border-brand-accent/20 bg-brand-accent/5 px-4 py-2 text-sm font-semibold text-brand-accent shadow-[0_0_12px_rgba(2,132,199,0.12)]">
               Building the Next Generation of Startups from Uttar Pradesh
@@ -93,7 +93,7 @@ function Hero({ onPrimaryClick, onSecondaryClick }) {
 
                 {/* Header */}
                 <div className="relative z-10 mb-8 flex items-center justify-between border-b border-slate-100 pb-4 slide-up-glow">
-                  <div className="font-sans text-[10px] font-bold tracking-[0.2em] text-slate-400">PLATFORM_EXECUTION</div>
+                  <div className="font-sans text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase">SECTORS_WE_COBUILD</div>
                   <div className="flex gap-1.5">
                     <div className="h-1.5 w-1.5 rounded-full bg-slate-200" />
                     <div className="h-1.5 w-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_rgba(2,132,199,0.4)]" />
@@ -101,33 +101,38 @@ function Hero({ onPrimaryClick, onSecondaryClick }) {
                   </div>
                 </div>
 
-                {/* Core stages */}
-                <div className="relative z-10 flex flex-col gap-6">
-                  {[
-                    { step: "01", title: "Idea Validation", width: "35%" },
-                    { step: "02", title: "Structuring & Setup", width: "55%" },
-                    { step: "03", title: "Capital Infusion", width: "80%" },
-                    { step: "04", title: "Growth & Scale", width: "100%" }
-                  ].map((item, i) => (
-                    <div key={item.step} className="group relative slide-up-glow" style={{ animationDelay: `${0.15 + i * 0.1}s` }}>
-                      <div className="mb-2 flex items-baseline justify-between">
-                        <div className="flex items-baseline gap-3">
-                          <span className="font-sans text-xs font-semibold text-brand-accent">{item.step}</span>
-                          <span className="text-sm font-semibold tracking-wide text-brand-navy">{item.title}</span>
+                {/* Network Diagram */}
+                <div className="relative z-10 mt-4 flex flex-col items-center pb-2">
+                  {/* Center Node */}
+                  <div className="relative z-20 flex h-12 w-28 items-center justify-center rounded-xl bg-brand-navy shadow-lg shadow-brand-navy/20 slide-up-glow">
+                    <span className="font-bold tracking-widest text-white text-xs">UP HUB</span>
+                  </div>
+                  
+                  {/* Central Trunk */}
+                  <div className="absolute top-12 bottom-6 w-px bg-gradient-to-b from-brand-navy via-brand-accent/40 to-transparent slide-up-glow" />
+                  
+                  {/* Satellite Branches */}
+                  <div className="mt-8 flex w-full flex-col gap-6">
+                    {[
+                      { name: "DroneTech", align: "left" },
+                      { name: "AgriTech", align: "right" },
+                      { name: "FinTech", align: "left" },
+                      { name: "DeepTech", align: "right" },
+                      { name: "D2C Brands", align: "left" },
+                      { name: "AI & SaaS", align: "right" }
+                    ].map((tag, i) => (
+                      <div key={tag.name} className={`relative flex w-1/2 ${tag.align === "left" ? "self-start justify-end pr-5" : "self-end justify-start pl-5"} slide-up-glow`} style={{ animationDelay: `${0.2 + i * 0.1}s` }}>
+                        {/* Connecting Wire */}
+                        <div className={`absolute top-1/2 h-px w-5 bg-brand-accent/20 ${tag.align === "left" ? "right-0" : "left-0"}`} />
+                        {/* Connecting Dot */}
+                        <div className={`absolute top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full box-content border-2 border-white bg-brand-accent shadow-sm ${tag.align === "left" ? "-right-[3px]" : "-left-[3px]"}`} />
+                        
+                        <div className="flex items-center rounded-xl border border-slate-100 bg-white/90 px-4 py-2 text-xs font-semibold text-brand-navy shadow-sm transition duration-300 hover:scale-105 hover:border-brand-accent hover:text-brand-accent cursor-default">
+                          {tag.name}
                         </div>
-                        <span className="text-[10px] uppercase tracking-wider text-brand-accent opacity-0 transition-opacity group-hover:opacity-100 hidden sm:block">
-                          Active
-                        </span>
                       </div>
-                      {/* Bar track */}
-                      <div className="relative h-1.5 w-full overflow-hidden rounded-full bg-brand-lightGrey">
-                        <div
-                          className="line-draw h-full rounded-full bg-gradient-to-r from-brand-accent via-brand-orange to-brand-gold"
-                          style={{ width: item.width, animationDelay: `${0.4 + i * 0.15}s` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
 
                 {/* Statement box */}
