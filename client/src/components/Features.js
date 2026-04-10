@@ -1,97 +1,30 @@
-const features = [
-  {
-    title: "Early-stage startups",
-    description:
-      "Built for founders moving from idea validation to seed-stage execution with real momentum.",
-    icon: (
-      <path
-        d="M12 3 4 7v5c0 5 3.4 9.35 8 10 4.6-.65 8-5 8-10V7l-8-4Z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    )
-  },
-  {
-    title: "UP-based or UP-connected founders",
-    description:
-      "Designed for entrepreneurs based in Uttar Pradesh or closely connected to the state's startup ecosystem.",
-    icon: (
-      <path
-        d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11Zm0-8.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    )
-  },
-  {
-    title: "High-potential sectors",
-    description:
-      "Focused on D2C, Manufacturing, Tech, and Services businesses with strong growth potential.",
-    icon: (
-      <path
-        d="M4 18h16M7 18V9m5 9V6m5 12v-4"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    )
-  },
-  {
-    title: "Execution-first support",
-    description:
-      "We do not just advise. We work alongside founders to build real, scalable businesses.",
-    icon: (
-      <path
-        d="M5 16 10 11l3 3 6-7M17 7h2v2"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    )
-  }
-];
-
 function Features() {
   return (
-    <section id="features" className="bg-brand-lightGrey py-20 sm:py-24">
-      <div className="section-shell">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-accent">
-            Who Can Apply
-          </p>
-          <h2 className="section-title mt-4 text-brand-navy">Built for Ambitious Founders</h2>
-          <p className="section-copy mx-auto">
-            UP Startup Hub is a full-stack startup platform designed to support founders at every
-            stage of their journey. From idea validation to scaling businesses, we provide the
-            right mix of capital, mentorship, and execution support.
-          </p>
+    <section id="about" className="py-24 bg-slate-50 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full bg-blob-blue opacity-30 pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 md:grid-cols-12 gap-16 relative z-10">
+        <div className="md:col-span-7 reveal-on-scroll">
+          <h2 className="text-[1.75rem] font-bold text-primary mb-8 tracking-tight">
+            Building the Next Generation of Startups from Uttar Pradesh
+          </h2>
+          <div className="space-y-6 text-lg leading-relaxed text-on-surface-variant">
+            <p>
+              UP Startup Hub is a full-stack startup platform designed to solve the specific challenges of building in Northern India. We are not just advisors—we work alongside founders to build real, scalable businesses.
+            </p>
+            <p>
+              By leveraging deep regional insights and global capital connections, we provide the architectural foundation for startups that want to lead the market, not just participate in it.
+            </p>
+          </div>
         </div>
-        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {features.map((feature, index) => (
-            <article
-              key={feature.title}
-              className="group fade-in-up rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-navy/20 hover:shadow-md"
-              style={{ animationDelay: `${index * 120}ms` }}
-            >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-navy/5 text-brand-navy transition duration-300 group-hover:bg-brand-blue/10 group-hover:text-brand-blue">
-                <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
-                  {feature.icon}
-                </svg>
-              </div>
-              <h3 className="mt-6 text-xl font-semibold text-brand-navy">{feature.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{feature.description}</p>
-            </article>
-          ))}
+        
+        <div className="md:col-span-5 reveal-on-scroll" style={{ transitionDelay: '0.2s' }}>
+          <div className="bg-white p-3 rounded-xl shadow-lg border border-slate-100 h-full flex flex-col justify-center">
+            <img 
+              alt="Founders working" 
+              className="rounded-lg grayscale hover:grayscale-0 transition-all duration-700 w-full" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGg4AZXj-pW9iPgnsQ-bCHZHQkwih8QGKCFDYAgDdPxA22EtBtPgleevhnc7dTXUEY1P-sY4Dm7IaV86tgNz8KWLqBs0l0F5rQeslMZsiO4BLf7Sjl8WjVzVxecCHI_HtfeoL5Jyy2Dacp_5uxX3AhXBCPmTlVzabOPmXsHYD7OiHbmAn5CSmLeec6H_Joo9oIwFQtdS0M-CNh_75x8GkQ-CN-RAMs_ydCVDHV1Z3rEWMqTexnSwvI31hslB1z40hOGyMs3WJzrOTv"
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UPStartupHub | The Sovereign Signal for Founders</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d3daef",
+                        "primary": "#1E3A8A", // Deep Blue from DS
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#ef9900",
+                        "surface-variant": "#dce2f7",
+                        "outline": "#757682",
+                        "on-primary-fixed": "#00164e",
+                        "surface-container-high": "#e1e8fd",
+                        "outline-variant": "#c5c5d3",
+                        "tertiary": "#3e2400",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "secondary-container": "#10B981", // Emerald from request
+                        "secondary": "#10B981",
+                        "inverse-surface": "#293040",
+                        "primary-container": "#1E3A8A",
+                        "surface-container-low": "#f8fafc", // F9FAFB equivalent
+                        "on-surface": "#141b2b",
+                        "on-tertiary-fixed": "#2a1700",
+                        "tertiary-container": "#5c3800",
+                        "secondary-fixed": "#6ffbbe",
+                        "surface-bright": "#f9f9ff",
+                        "on-primary-fixed-variant": "#264191",
+                        "surface-container": "#e9edff",
+                        "on-secondary-container": "#ffffff",
+                        "surface-tint": "#4059aa",
+                        "on-secondary-fixed": "#002113",
+                        "primary-fixed": "#dce1ff",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-primary-container": "#90a8ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container-highest": "#dce2f7",
+                        "tertiary-fixed": "#ffddb8",
+                        "inverse-primary": "#b6c4ff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#444651",
+                        "inverse-on-surface": "#edf0ff",
+                        "error-container": "#ffdad6",
+                        "on-background": "#141b2b",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9ff",
+                        "on-primary": "#ffffff",
+                        "surface": "#ffffff",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#4edea3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    "animation": {
+                        "draw-line": "draw 1.5s ease-out forwards",
+                        "fade-in-node": "fadeIn 0.8s ease-out forwards",
+                        "pulse-glow": "pulseGlow 3s infinite ease-in-out",
+                        "flow": "flow 20s linear infinite"
+                    },
+                    "keyframes": {
+                        "draw": {
+                            "from": { "stroke-dashoffset": "100" },
+                            "to": { "stroke-dashoffset": "0" }
+                        },
+                        "fadeIn": {
+                            "from": { "opacity": "0", "transform": "scale(0.9)" },
+                            "to": { "opacity": "1", "transform": "scale(1)" }
+                        },
+                        "pulseGlow": {
+                            "0%, 100%": { "box-shadow": "0 0 0px rgba(30, 58, 138, 0)" },
+                            "50%": { "box-shadow": "0 0 25px rgba(30, 58, 138, 0.4)" }
+                        },
+                        "flow": {
+                            "from": { "stroke-dashoffset": "1000" },
+                            "to": { "stroke-dashoffset": "0" }
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        
+        .ecosystem-node:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -10px);
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .line-drawing {
+            stroke-dasharray: 10;
+            stroke-dashoffset: 1000;
+            animation: flow 30s linear infinite;
+        }
+
+        .bg-blob-blue {
+            background: radial-gradient(circle, rgba(30, 58, 138, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        .bg-blob-emerald {
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm h-20">
+<div class="flex justify-between items-center w-full px-8 md:px-16 max-w-7xl mx-auto h-full">
+<div class="text-2xl font-bold tracking-tighter text-primary">UPStartupHub</div>
+<div class="hidden md:flex items-center gap-8 font-sans text-sm tracking-tight">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1" href="#">About</a>
+<a class="text-slate-500 font-medium hover:text-primary transition-colors" href="#">Programs</a>
+<a class="text-slate-500 font-medium hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-primary hover:bg-blue-900 text-on-primary px-6 py-2.5 rounded-lg text-sm font-bold tracking-tight transition-all active:scale-95 shadow-md hover:shadow-lg">Get Started</button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center overflow-hidden bg-white">
+<!-- Abstract Background Accents -->
+<div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-blob-blue rounded-full pointer-events-none"></div>
+<div class="absolute top-[40%] -right-[10%] w-[50%] h-[50%] bg-blob-emerald rounded-full pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+<div class="lg:col-span-6">
+<span class="inline-block px-4 py-1.5 bg-secondary-container text-white rounded-full text-[10px] font-bold tracking-widest uppercase mb-6 shadow-sm">Uttar Pradesh Startup Ecosystem</span>
+<h1 class="text-[3.5rem] leading-[1.1] font-extrabold tracking-tighter text-primary mb-6">
+                    Everything Your Startup Needs – In One Place
+                </h1>
+<p class="text-lg leading-relaxed text-on-surface-variant max-w-xl mb-10">
+                    We help founders build, fund, and scale startups from Uttar Pradesh with capital, mentorship, structuring, and powerful industry connections.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+<button class="bg-[#F59E0B] text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-[#D97706] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0">
+                        Apply for Funding
+                    </button>
+<p class="text-sm font-semibold italic text-on-surface-variant border-l-2 border-primary/20 pl-4">
+                        “From Idea to Scale – <br/>We Build With You.”
+                    </p>
+</div>
+</div>
+<div class="lg:col-span-6 relative flex flex-col items-center">
+<div class="w-full text-center mb-4 lg:mb-8">
+<h3 class="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-2">High-Growth Sectors</h3>
+<p class="text-xs text-on-surface-variant font-medium">Strategic focus for the UP Ecosystem</p>
+</div>
+<!-- Integrated Ecosystem Diagram -->
+<div class="relative w-full aspect-square max-w-lg mx-auto flex items-center justify-center reveal-on-scroll active" id="ecosystem-diagram-hero">
+<!-- SVG Connections -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" viewbox="0 0 800 400">
+<defs>
+<lineargradient id="line-grad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#1E3A8A" stop-opacity="0.1"></stop>
+<stop offset="50%" stop-color="#10B981" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#1E3A8A" stop-opacity="0.1"></stop>
+</lineargradient>
+</defs>
+<g class="line-group">
+<line class="line-drawing stroke-[url(#line-grad)]" stroke-width="2" x1="400" x2="150" y1="200" y2="100"></line>
+<line class="line-drawing stroke-[url(#line-grad)]" stroke-width="2" x1="400" x2="400" y1="200" y2="50"></line>
+<line class="line-drawing stroke-[url(#line-grad)]" stroke-width="2" x1="400" x2="650" y1="200" y2="100"></line>
+<line class="line-drawing stroke-[url(#line-grad)]" stroke-width="2" x1="400" x2="150" y1="200" y2="300"></line>
+<line class="line-drawing stroke-[url(#line-grad)]" stroke-width="2" x1="400" x2="400" y1="200" y2="350"></line>
+<line class="line-drawing stroke-[url(#line-grad)]" stroke-width="2" x1="400" x2="650" y1="200" y2="300"></line>
+</g>
+</svg>
+<!-- Center Node -->
+<div class="absolute z-20 flex flex-col items-center justify-center bg-gradient-to-br from-primary to-blue-900 text-white w-28 h-28 md:w-36 md:h-36 rounded-full shadow-2xl border-4 border-white animate-pulse-glow" id="center-node">
+<span class="text-[10px] font-black uppercase tracking-widest opacity-70">The Hub</span>
+<span class="text-xs md:text-sm font-bold text-center px-4 leading-tight">UPStartupHub</span>
+</div>
+<!-- Surrounding Nodes -->
+<div class="ecosystem-node absolute top-[15%] left-[10%] md:top-[20%] md:left-[15%] transition-all duration-300 hover:scale-110 group cursor-default">
+<div class="relative flex flex-col items-center">
+<div class="w-12 h-12 md:w-14 md:h-14 bg-emerald-50 border border-emerald-100 rounded-xl shadow-sm flex items-center justify-center text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-xl md:text-2xl">account_balance</span>
+</div>
+<span class="mt-2 text-[10px] md:text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">FinTech</span>
+</div>
+</div>
+<div class="ecosystem-node absolute top-[2%] left-[50%] -translate-x-1/2 md:top-[5%] transition-all duration-300 hover:scale-110 group cursor-default">
+<div class="relative flex flex-col items-center">
+<div class="w-12 h-12 md:w-14 md:h-14 bg-emerald-50 border border-emerald-100 rounded-xl shadow-sm flex items-center justify-center text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-xl md:text-2xl">agriculture</span>
+</div>
+<span class="mt-2 text-[10px] md:text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">AgriTech</span>
+</div>
+</div>
+<div class="ecosystem-node absolute top-[15%] right-[10%] md:top-[20%] md:right-[15%] transition-all duration-300 hover:scale-110 group cursor-default">
+<div class="relative flex flex-col items-center">
+<div class="w-12 h-12 md:w-14 md:h-14 bg-emerald-50 border border-emerald-100 rounded-xl shadow-sm flex items-center justify-center text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-xl md:text-2xl">shopping_bag</span>
+</div>
+<span class="mt-2 text-[10px] md:text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">D2C Brands</span>
+</div>
+</div>
+<div class="ecosystem-node absolute bottom-[15%] left-[10%] md:bottom-[20%] md:left-[15%] transition-all duration-300 hover:scale-110 group cursor-default">
+<div class="relative flex flex-col items-center">
+<div class="w-12 h-12 md:w-14 md:h-14 bg-emerald-50 border border-emerald-100 rounded-xl shadow-sm flex items-center justify-center text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-xl md:text-2xl">precision_manufacturing</span>
+</div>
+<span class="mt-2 text-[10px] md:text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">Manufacturing</span>
+</div>
+</div>
+<div class="ecosystem-node absolute bottom-[2%] left-[50%] -translate-x-1/2 md:bottom-[5%] transition-all duration-300 hover:scale-110 group cursor-default">
+<div class="relative flex flex-col items-center">
+<div class="w-12 h-12 md:w-14 md:h-14 bg-emerald-50 border border-emerald-100 rounded-xl shadow-sm flex items-center justify-center text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-xl md:text-2xl">flight_takeoff</span>
+</div>
+<span class="mt-2 text-[10px] md:text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">Drone Tech</span>
+</div>
+</div>
+<div class="ecosystem-node absolute bottom-[15%] right-[10%] md:bottom-[20%] md:right-[15%] transition-all duration-300 hover:scale-110 group cursor-default">
+<div class="relative flex flex-col items-center">
+<div class="w-12 h-12 md:w-14 md:h-14 bg-emerald-50 border border-emerald-100 rounded-xl shadow-sm flex items-center justify-center text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-xl md:text-2xl">cloud_queue</span>
+</div>
+<span class="mt-2 text-[10px] md:text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">SaaS / Tech</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section - Light Grey Variant -->
+<section class="py-24 bg-slate-50 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full bg-blob-blue opacity-30 pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 md:grid-cols-12 gap-16 relative z-10">
+<div class="md:col-span-7">
+<h2 class="text-[1.75rem] font-bold text-primary mb-8 tracking-tight">Building the Next Generation of Startups from Uttar Pradesh</h2>
+<div class="space-y-6 text-lg leading-relaxed text-on-surface-variant">
+<p>UP Startup Hub is a full-stack startup platform designed to solve the specific challenges of building in Northern India. We are not just advisors—we work alongside founders to build real, scalable businesses.</p>
+<p>By leveraging deep regional insights and global capital connections, we provide the architectural foundation for startups that want to lead the market, not just participate in it.</p>
+</div>
+</div>
+<div class="md:col-span-5">
+<div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100 h-full flex flex-col justify-center">
+<img alt="Founders working" class="rounded-lg grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGg4AZXj-pW9iPgnsQ-bCHZHQkwih8QGKCFDYAgDdPxA22EtBtPgleevhnc7dTXUEY1P-sY4Dm7IaV86tgNz8KWLqBs0l0F5rQeslMZsiO4BLf7Sjl8WjVzVxecCHI_HtfeoL5Jyy2Dacp_5uxX3AhXBCPmTlVzabOPmXsHYD7OiHbmAn5CSmLeec6H_Joo9oIwFQtdS0M-CNh_75x8GkQ-CN-RAMs_ydCVDHV1Z3rEWMqTexnSwvI31hslB1z40hOGyMs3WJzrOTv"/>
+<div class="mt-6 flex justify-between items-end">
+<div>
+<p class="text-[2rem] font-bold text-primary">500+</p>
+<p class="text-[0.6875rem] uppercase tracking-widest font-bold text-on-surface-variant">Founders Impacted</p>
+</div>
+<div class="text-right">
+<p class="text-[2rem] font-bold text-secondary">₹12Cr+</p>
+<p class="text-[0.6875rem] uppercase tracking-widest font-bold text-on-surface-variant">Capital Deployed</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Who Can Apply - Pure White -->
+<section class="py-24 bg-white relative">
+<div class="max-w-7xl mx-auto px-8 md:px-16">
+<div class="mb-16">
+<h2 class="text-[1.75rem] font-bold text-primary tracking-tight">Built for Ambitious Founders</h2>
+<p class="text-on-surface-variant mt-2">Selection criteria for our core acceleration and funding programs.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-slate-100">
+<div class="py-12 pr-12 border-b md:border-b-0 md:border-r border-slate-100 group">
+<span class="material-symbols-outlined text-secondary mb-6 group-hover:scale-110 transition-transform block" style="font-size: 32px;">rocket_launch</span>
+<h3 class="text-xl font-bold mb-4 text-primary">Early-stage startups</h3>
+<p class="text-on-surface-variant leading-relaxed">Ventures at MVP or early traction stage looking for the first institutional cheque and strategic guidance.</p>
+</div>
+<div class="py-12 md:px-12 border-b md:border-b-0 md:border-r border-slate-100 group">
+<span class="material-symbols-outlined text-secondary mb-6 group-hover:scale-110 transition-transform block" style="font-size: 32px;">location_on</span>
+<h3 class="text-xl font-bold mb-4 text-primary">Founders based in UP</h3>
+<p class="text-on-surface-variant leading-relaxed">Companies registered or operating primary operations within Uttar Pradesh to boost regional economic growth.</p>
+</div>
+<div class="py-12 md:pl-12 group">
+<span class="material-symbols-outlined text-secondary mb-6 group-hover:scale-110 transition-transform block" style="font-size: 32px;">trending_up</span>
+<h3 class="text-xl font-bold mb-4 text-primary">High-potential businesses</h3>
+<p class="text-on-surface-variant leading-relaxed">Scalable models in Tech, D2C, Agritech, or Fintech that leverage the regional strengths of UP.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works - Warmer Neutral Variant -->
+<section class="py-24 bg-[#FAFAF9]">
+<div class="max-w-7xl mx-auto px-8 md:px-16">
+<h2 class="text-[1.75rem] font-bold text-primary mb-20 text-center tracking-tight">Simple. Fast. Founder-Friendly.</h2>
+<div class="relative flex flex-col md:flex-row justify-between items-start gap-8">
+<div class="hidden md:block absolute top-6 left-0 w-full h-px bg-primary/10 -z-0"></div>
+<div class="flex-1 relative z-10 group">
+<div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold mb-6 group-hover:bg-blue-800 transition-all shadow-md">1</div>
+<h4 class="font-bold text-primary mb-2">Apply online</h4>
+<p class="text-sm text-on-surface-variant">Simple 10-minute application highlighting your core metrics and vision.</p>
+</div>
+<div class="flex-1 relative z-10 group">
+<div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold mb-6 group-hover:bg-blue-800 transition-all shadow-md">2</div>
+<h4 class="font-bold text-primary mb-2">Review</h4>
+<p class="text-sm text-on-surface-variant">Quick turnaround by our investment committee within 7 working days.</p>
+</div>
+<div class="flex-1 relative z-10 group">
+<div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold mb-6 group-hover:bg-blue-800 transition-all shadow-md">3</div>
+<h4 class="font-bold text-primary mb-2">Mentorship</h4>
+<p class="text-sm text-on-surface-variant">Refining the model with industry veterans before final deployment.</p>
+</div>
+<div class="flex-1 relative z-10 group">
+<div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold mb-6 group-hover:bg-blue-800 transition-all shadow-md">4</div>
+<h4 class="font-bold text-primary mb-2">Funding</h4>
+<p class="text-sm text-on-surface-variant">Securing institutional capital to fuel growth milestones.</p>
+</div>
+<div class="flex-1 relative z-10 group">
+<div class="w-12 h-12 bg-secondary text-on-secondary rounded-full flex items-center justify-center font-bold mb-6 group-hover:scale-110 transition-transform shadow-md">5</div>
+<h4 class="font-bold text-primary mb-2">Scaling</h4>
+<p class="text-sm text-on-surface-variant">Ongoing support via industry network and hiring assistance.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Lead Form Section -->
+<section class="py-24 bg-white relative overflow-hidden">
+<div class="absolute -bottom-[10%] -left-[10%] w-[50%] h-[50%] bg-blob-blue opacity-40 rounded-full pointer-events-none"></div>
+<div class="max-w-4xl mx-auto px-8 relative z-10">
+<div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100">
+<div class="bg-primary p-12 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary opacity-10 rounded-full -mr-16 -mt-16"></div>
+<h2 class="text-[2rem] font-bold text-on-primary mb-4 tracking-tight">Ready to Build Your Startup?</h2>
+<p class="text-blue-200 max-w-md mx-auto">Fill in your details below and our team will get in touch with you shortly.</p>
+</div>
+<form class="p-12 space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-primary">Full Name</label>
+<input class="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:border-secondary focus:ring-0 rounded-none h-12 px-2 text-on-surface transition-all" placeholder="Enter your name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-primary">Email Address</label>
+<input class="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:border-secondary focus:ring-0 rounded-none h-12 px-2 text-on-surface transition-all" placeholder="name@company.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-primary">Startup Name</label>
+<input class="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:border-secondary focus:ring-0 rounded-none h-12 px-2 text-on-surface transition-all" placeholder="Your venture name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-primary">Stage</label>
+<select class="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:border-secondary focus:ring-0 rounded-none h-12 px-2 text-on-surface transition-all">
+<option>Idea Stage</option>
+<option>Early Traction</option>
+<option>Growth Stage</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-primary">Message</label>
+<textarea class="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:border-secondary focus:ring-0 rounded-none px-2 py-2 text-on-surface transition-all" placeholder="Tell us about your mission..." rows="4"></textarea>
+</div>
+<div class="pt-4 flex flex-col items-center gap-6">
+<button class="bg-primary text-white px-12 py-4 rounded-md font-bold text-lg w-full md:w-auto shadow-lg hover:bg-blue-900 hover:-translate-y-0.5 transition-all active:translate-y-0">
+                            Apply Now
+                        </button>
+<div class="flex gap-8">
+<button class="text-sm font-bold text-secondary border-b border-secondary/20 hover:border-secondary transition-all" type="button">Become a Mentor</button>
+<button class="text-sm font-bold text-secondary border-b border-secondary/20 hover:border-secondary transition-all" type="button">Partner With Us</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Final CTA Strip -->
+<section class="bg-primary py-16 relative overflow-hidden">
+<div class="absolute right-0 bottom-0 w-64 h-64 bg-secondary opacity-5 rounded-full -mr-32 -mb-32"></div>
+<div class="max-w-7xl mx-auto px-8 md:px-16 flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
+<h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">From Idea to Scale – We Build With You.</h2>
+<button class="bg-white text-primary px-10 py-4 rounded-md font-black text-lg hover:bg-slate-100 hover:scale-105 transition-all shadow-xl active:scale-100">
+                Apply Now
+            </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 w-full py-12 border-t border-slate-100">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 px-8 md:px-16 max-w-7xl mx-auto">
+<div class="md:col-span-4">
+<div class="text-lg font-black text-primary mb-6">UPStartupHub</div>
+<p class="text-xs uppercase tracking-widest font-bold text-slate-500">© 2024 UPStartupHub. The Sovereign Signal.</p>
+</div>
+<div class="md:col-span-8 flex flex-wrap gap-x-12 gap-y-6 md:justify-end">
+<a class="text-xs uppercase tracking-widest font-bold text-slate-500 hover:text-primary transition-opacity opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-xs uppercase tracking-widest font-bold text-slate-500 hover:text-primary transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-xs uppercase tracking-widest font-bold text-slate-500 hover:text-primary transition-opacity opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="text-xs uppercase tracking-widest font-bold text-slate-500 hover:text-primary transition-opacity opacity-80 hover:opacity-100" href="#">Global Network</a>
+</div>
+</div>
+</footer>
+<script>
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        revealElements.forEach(el => observer.observe(el));
+    });
+</script>
+</body></html>

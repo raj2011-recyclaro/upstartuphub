@@ -93,155 +93,122 @@ function LeadForm() {
     }
   };
 
-  const inputClassName =
-    "mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-brand-navy focus:ring-4 focus:ring-brand-navy/5 shadow-sm";
-
   return (
-    <section id="lead-form" className="bg-white py-20 sm:py-24">
-      <div className="section-shell">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-accent">
-            Get Started
-          </p>
-          <h2 className="section-title mt-4 text-brand-navy">Ready to Build Your Startup?</h2>
-          <p className="section-copy mx-auto">
-            Join UP Startup Hub and get access to everything you need to turn your idea into a
-            successful business.
-          </p>
-        </div>
-        <div className="mx-auto mt-14 max-w-4xl">
-          <div className="grid gap-0 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="border-l-4 border-brand-blue bg-brand-lightGrey px-8 py-10 sm:px-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-accent">
-                Founder Intake
-              </p>
-              <h3 className="mt-4 text-3xl font-bold tracking-tight text-brand-navy">
-                Apply now and let us build with you
-              </h3>
-              <p className="mt-5 text-base leading-8 text-slate-600">
-                Tell us about your startup and we will reach out with the right next step around
-                funding, mentorship, or strategic support.
-              </p>
-              <div className="mt-10 space-y-5">
-                {[
-                  "Initial review and founder discussion",
-                  "Mentorship and evaluation support",
-                  "Funding and onboarding for selected startups"
-                ].map((point) => (
-                  <div key={point} className="flex items-start gap-3">
-                    <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
-                      <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
-                        <path
-                          d="m5 13 4 4L19 7"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </span>
-                    <p className="text-sm text-slate-600 font-medium">{point}</p>
-                  </div>
-                ))}
-              </div>
+    <>
+      <section id="lead-form" className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute -bottom-[10%] -left-[10%] w-[50%] h-[50%] bg-blob-blue opacity-40 rounded-full pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-8 relative z-10 reveal-on-scroll">
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100">
+            {/* Header */}
+            <div className="bg-primary p-12 text-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-secondary opacity-10 rounded-full -mr-16 -mt-16" />
+              <h2 className="text-[2rem] font-bold text-white mb-4 tracking-tight">Ready to Build Your Startup?</h2>
+              <p className="text-blue-200 max-w-md mx-auto">Fill in your details below and our team will get in touch with you shortly.</p>
             </div>
-            <div className="glass-panel px-8 py-10 sm:px-10">
-              <form onSubmit={handleSubmit} noValidate>
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <label className="sm:col-span-2">
-                    <span className="text-sm font-medium text-slate-700">Full Name *</span>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className={inputClassName}
-                      placeholder="Enter your full name"
-                      required
-                    />
-                  </label>
-                  <label className="sm:col-span-2">
-                    <span className="text-sm font-medium text-slate-700">Email *</span>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={inputClassName}
-                      placeholder="you@startup.com"
-                      required
-                    />
-                  </label>
-                  <label>
-                    <span className="text-sm font-medium text-slate-700">Phone</span>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className={inputClassName}
-                      placeholder="+91 98765 43210"
-                    />
-                  </label>
-                  <label>
-                    <span className="text-sm font-medium text-slate-700">Startup Name</span>
-                    <input
-                      type="text"
-                      name="startup"
-                      value={formData.startup}
-                      onChange={handleChange}
-                      className={inputClassName}
-                      placeholder="Your startup name"
-                    />
-                  </label>
-                  <label className="sm:col-span-2">
-                    <span className="text-sm font-medium text-slate-700">Stage</span>
-                    <select
-                      name="stage"
-                      value={formData.stage}
-                      onChange={handleChange}
-                      className={inputClassName}
-                    >
-                      <option value="Idea">Idea</option>
-                      <option value="Early">Early</option>
-                      <option value="Growth">Growth</option>
-                    </select>
-                  </label>
-                  <label className="sm:col-span-2">
-                    <span className="text-sm font-medium text-slate-700">Message</span>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      className={`${inputClassName} min-h-[140px] resize-y`}
-                      placeholder="Tell us what support you are looking for"
-                    />
-                  </label>
+            
+            {/* Form */}
+            <form className="p-12 space-y-8" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-primary">Full Name</label>
+                  <input 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:border-secondary focus:ring-0 rounded-none h-12 px-2 text-on-surface transition-all" 
+                    placeholder="Enter your name" 
+                    type="text" 
+                  />
                 </div>
-                {status.message ? (
-                  <div
-                    className={`mt-5 rounded-2xl border px-4 py-3 text-sm ${
-                      status.type === "success"
-                        ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-                        : "border-red-200 bg-red-50 text-red-700"
-                    }`}
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-primary">Email Address</label>
+                  <input 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:border-secondary focus:ring-0 rounded-none h-12 px-2 text-on-surface transition-all" 
+                    placeholder="name@company.com" 
+                    type="email" 
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-primary">Startup Name</label>
+                  <input 
+                    name="startup"
+                    value={formData.startup}
+                    onChange={handleChange}
+                    className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:border-secondary focus:ring-0 rounded-none h-12 px-2 text-on-surface transition-all" 
+                    placeholder="Your venture name" 
+                    type="text" 
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-primary">Stage</label>
+                  <select 
+                    name="stage"
+                    value={formData.stage}
+                    onChange={handleChange}
+                    className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:border-secondary focus:ring-0 rounded-none h-12 px-2 text-on-surface transition-all"
                   >
-                    {status.message}
-                  </div>
-                ) : null}
-                <button
+                    <option value="Idea">Idea Stage</option>
+                    <option value="Early">Early Traction</option>
+                    <option value="Growth">Growth Stage</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-primary">Message</label>
+                <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:border-secondary focus:ring-0 rounded-none px-2 py-2 text-on-surface transition-all" 
+                  placeholder="Tell us about your mission..." 
+                  rows="4"
+                />
+              </div>
+
+              {status.message && (
+                <div className={`text-sm font-bold ${status.type === "success" ? "text-secondary" : "text-error"}`}>
+                  {status.message}
+                </div>
+              )}
+
+              <div className="pt-4 flex flex-col items-center gap-6">
+                <button 
                   type="submit"
                   disabled={loading}
-                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-blueDeep disabled:cursor-not-allowed disabled:bg-slate-400"
+                  className="bg-primary text-white px-12 py-4 rounded-md font-bold text-lg w-full md:w-auto shadow-lg hover:bg-blue-900 hover:-translate-y-0.5 transition-all active:translate-y-0 disabled:opacity-50"
                 >
-                  {loading ? "Submitting..." : "Submit Details"}
+                  {loading ? "Applying..." : "Apply Now"}
                 </button>
-              </form>
-            </div>
+                <div className="flex gap-8">
+                  <button className="text-sm font-bold text-secondary border-b border-secondary/20 hover:border-secondary transition-all" type="button">Become a Mentor</button>
+                  <button className="text-sm font-bold text-secondary border-b border-secondary/20 hover:border-secondary transition-all" type="button">Partner With Us</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Final CTA Strip */}
+      <section className="bg-primary py-16 relative overflow-hidden">
+        <div className="absolute right-0 bottom-0 w-64 h-64 bg-secondary opacity-5 rounded-full -mr-32 -mb-32" />
+        <div className="max-w-7xl mx-auto px-8 md:px-16 flex flex-col md:flex-row justify-between items-center gap-8 relative z-10 reveal-on-scroll">
+          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">From Idea to Scale – We Build With You.</h2>
+          <button 
+            onClick={() => {
+              document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="bg-white text-primary px-10 py-4 rounded-md font-black text-lg hover:bg-slate-100 hover:scale-105 transition-all shadow-xl active:scale-100"
+          >
+            Apply Now
+          </button>
+        </div>
+      </section>
+    </>
   );
 }
 
