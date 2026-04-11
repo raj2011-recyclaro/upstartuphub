@@ -26,7 +26,7 @@ function Navbar() {
         </div>
         <a 
           href="#lead-form"
-          className="bg-primary hover:bg-blue-900 text-white px-6 py-2.5 rounded-lg text-sm font-bold tracking-tight transition-all active:scale-95 shadow-md hover:shadow-lg"
+          className="bg-secondary hover:bg-orange-600 text-white px-6 py-2.5 rounded-lg text-sm font-bold tracking-tight transition-all active:scale-95 shadow-md hover:shadow-orange-200"
         >
           Get Started
         </a>

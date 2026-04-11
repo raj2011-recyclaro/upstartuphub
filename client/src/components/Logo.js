@@ -1,114 +1,86 @@
-/**
- * Logo – transparent SVG reproduction of the UP Startup Hub brand mark.
- *
- * Props:
- *   textColor  – fill colour for "Startuphub.com" text.
- *                Defaults to dark navy (#2D3748) for light backgrounds.
- *                Pass "white" or "#fff" for dark backgrounds (footer).
- *   className  – extra Tailwind / CSS classes applied to the <svg>.
- *   iconOnly   – render just the house-rocket icon (no wordmark).
- *                Useful for the hero animated orb.
- */
-function Logo({ primaryColor = "#1A428A", textColor = "#2D3748", className = "", iconOnly = false }) {
+function Logo({ primaryColor = "#1E3A8A", accentColor = "#FF6600", textColor = "#2D3748", className = "", iconOnly = false }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox={iconOnly ? "0 0 98 106" : "0 0 710 106"}
+      viewBox={iconOnly ? "0 0 100 110" : "0 0 820 110"}
       fill="none"
       className={className}
       aria-label="UP Startup Hub"
     >
-      {/* ── House outline ── */}
-      <path
-        d="M 8 103 L 8 48 L 49 5 L 90 48 L 90 70 L 75 70 L 75 103 Z"
-        stroke={primaryColor}
-        strokeWidth="4.5"
-        strokeLinejoin="round"
-        strokeLinecap="round"
-      />
-
-      {/* ── Realistic Rocket ── */}
-      <g transform="translate(46,55) rotate(-5)">
-        {/* Exhaust Flame (Layered) */}
-        <path d="M -4 20 C -6 32 -10 38 -4 42" stroke={primaryColor} strokeWidth="1.5" strokeLinecap="round" className="opacity-40" />
-        <path d="M 0 20 L 0 44" stroke={primaryColor} strokeWidth="2" strokeLinecap="round" className="opacity-60" />
-        <path d="M 4 20 C 6 32 10 38 4 42" stroke={primaryColor} strokeWidth="1.5" strokeLinecap="round" className="opacity-40" />
-        
-        {/* Fins (Aerodynamic & Curved) */}
+      <g transform="translate(5, 5)">
+        {/* House Outline */}
         <path
-          d="M -13 8 L -24 30 L -4 18 Z"
-          fill={primaryColor}
-          className="opacity-20"
-        />
-        <path
-          d="M -13 8 L -24 30 L -4 18 Z"
+          d="M 12 100 L 12 45 L 48 5 L 84 45 L 84 65 L 70 65 L 70 100 Z"
           stroke={primaryColor}
-          strokeWidth="2"
+          strokeWidth="6.5"
           strokeLinejoin="round"
-        />
-        <path
-          d="M 13 8 L 24 30 L 4 18 Z"
-          fill={primaryColor}
-          className="opacity-20"
-        />
-        <path
-          d="M 13 8 L 24 30 L 4 18 Z"
-          stroke={primaryColor}
-          strokeWidth="2"
-          strokeLinejoin="round"
+          strokeLinecap="round"
         />
 
-        {/* Main Body (Segmented) */}
-        <path
-          d="M 0 -28 C -12 -28 -14 -12 -14 0 L -14 16 C -8 22 8 22 14 16 L 14 0 C 14 -12 12 -28 0 -28 Z"
-          stroke={primaryColor}
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-        />
-        {/* Nose Cone Tip */}
-        <path
-          d="M 0 -28 C -6 -28 -8 -22 -9 -18 L 9 -18 C 8 -22 6 -28 0 -28 Z"
-          fill={primaryColor}
-          className="opacity-10"
-        />
-        
-        {/* Porthole (Detailed) */}
-        <circle cx="0" cy="-6" r="6" stroke={primaryColor} strokeWidth="2.5" />
-        <circle cx="0" cy="-6" r="3" fill={primaryColor} className="opacity-20" />
+        {/* Rocket Interior */}
+        <g transform="translate(45, 52) rotate(-2)">
+          {/* Flame - Dynamic Orange Accent */}
+          <path 
+            d="M -6 22 C -8 35 -12 42 -6 48 C 0 54 6 54 12 48 C 18 42 14 35 12 22" 
+            fill={accentColor} 
+            className="animate-pulse"
+            opacity="0.9"
+          />
+          <path 
+            d="M -3 22 C -5 32 -8 38 -3 42 C 0 46 3 46 6 42 C 10 38 7 32 6 22" 
+            fill="#FFD700" 
+            opacity="0.6"
+          />
+          
+          {/* Rocket Body */}
+          <path
+            d="M 0 -32 C -15 -32 -18 -15 -18 0 L -18 18 C -10 25 10 25 18 18 L 18 0 C 18 -15 15 -32 0 -32 Z"
+            fill="white"
+            stroke={primaryColor}
+            strokeWidth="3.5"
+            strokeLinejoin="round"
+          />
+          
+          {/* Fins */}
+          <path d="M -17 8 L -28 32 L -8 20 Z" fill={primaryColor} />
+          <path d="M 17 8 L 28 32 L 8 20 Z" fill={primaryColor} />
+
+          {/* Window */}
+          <circle cx="0" cy="-6" r="7" fill="white" stroke={primaryColor} strokeWidth="3" />
+          <circle cx="0" cy="-6" r="3.5" fill={primaryColor} />
+        </g>
       </g>
 
-      {/* ── Wordmark (Sleeker weights) ── */}
       {!iconOnly && (
-        <>
-          {/* Vertical divider */}
-          <rect x="100" y="24" width="2" height="58" rx="1" fill={primaryColor} opacity="0.3" />
+        <g transform="translate(110, 0)">
+          {/* Vertical Divider */}
+          <rect y="20" width="3" height="70" rx="1.5" fill={primaryColor} opacity="0.15" />
 
-          {/* "UP" – Bold but not heavy */}
-          <text
-            x="114"
-            y="79"
-            fontFamily="Outfit, sans-serif"
-            fontWeight="700"
-            fontSize="68"
-            fill={primaryColor}
-            letterSpacing="-0.02em"
-          >
-            UP
-          </text>
-
-          {/* "Startuphub.com" – Medium/Sleek */}
-          <text
-            x="215"
-            y="79"
-            fontFamily="Outfit, sans-serif"
-            fontWeight="500"
-            fontSize="64"
-            fill={textColor}
-            letterSpacing="-0.01em"
-          >
-            Startuphub.com
-          </text>
-        </>
+          {/* Brand Name */}
+          <g transform="translate(25, 0)">
+            <text
+              y="85"
+              fontFamily="Outfit, Inter, sans-serif"
+              fontWeight="800"
+              fontSize="78"
+              fill={accentColor}
+              letterSpacing="-0.03em"
+            >
+              UP
+            </text>
+            <text
+              x="105"
+              y="85"
+              fontFamily="Outfit, Inter, sans-serif"
+              fontWeight="500"
+              fontSize="72"
+              fill={primaryColor}
+              letterSpacing="-0.02em"
+            >
+              Startuphub.com
+            </text>
+          </g>
+        </g>
       )}
     </svg>
   );
