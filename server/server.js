@@ -76,13 +76,26 @@ const createTransporter = () => {
   }
 
   return nodemailer.createTransport({
+    pool: true,
     service: "gmail",
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
-    }
+    },
+    maxConnections: 5,
+    maxMessages: 100
   });
 };
+
+const transporter = createTransporter();
+
+transporter.verify((error) => {
+  if (error) {
+    console.error("Transporter verification failed:", error);
+  } else {
+    console.log("Transporter verified and ready to send emails.");
+  }
+});
 
 app.get("/api/health", (_request, response) => {
   response.json({ success: true, message: "Server is running." });
@@ -97,7 +110,6 @@ app.post("/api/lead", leadLimiter, async (request, response) => {
   }
 
   try {
-    const transporter = createTransporter();
     const recipient = process.env.LEAD_RECEIVER_EMAIL || process.env.EMAIL_USER;
 
     await transporter.sendMail({
