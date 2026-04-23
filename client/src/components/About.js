@@ -44,27 +44,6 @@ function About() {
         </div>
       </section>
 
-      {/* Mentors Section */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 text-center">
-          <h2 className="text-3xl font-bold text-primary mb-12 tracking-tight">Our Mentors</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { role: "Industry Expert & Mentor" },
-              { role: "Strategic Advisor & Mentor" },
-              { role: "Tech Innovation & Mentor" }
-            ].map((mentor) => (
-              <div key={mentor.role} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                <div className="w-20 h-20 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-6 text-primary">
-                  <span className="material-symbols-outlined text-4xl">person</span>
-                </div>
-                <p className="text-slate-500 font-medium text-sm">{mentor.role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Why UP? */}
 
       <section className="py-24 bg-slate-50">
