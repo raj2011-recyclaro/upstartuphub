@@ -56,7 +56,76 @@ npm run dev
 
 ## Deployment
 
-- Frontend: Vercel or Netlify
-- Backend: Render or Railway
+- Frontend: S3 + CloudFront, Vercel, or Netlify
+- Backend: AWS Lambda
 - Set `REACT_APP_API_BASE_URL` on the frontend deployment
-- Set `EMAIL_USER`, `EMAIL_PASS`, `LEAD_RECEIVER_EMAIL`, `CLIENT_ORIGIN`, and `PORT` on the backend deployment
+- Set `EMAIL_USER`, `EMAIL_PASS`, `LEAD_RECEIVER_EMAIL`, and `CLIENT_ORIGIN` on the backend deployment
+
+## AWS Lambda deployment
+
+The backend now supports both local Express development and AWS Lambda.
+
+### Backend files
+
+- Local server entry: `server/server.js`
+- Lambda handler: `server/lambda.js`
+
+### Deploy steps
+
+1. Install backend dependencies:
+
+```bash
+cd server
+npm install
+```
+
+2. Zip the backend contents from the `server` folder, including `node_modules`.
+
+3. In AWS Lambda:
+
+- Create a new Lambda function using Node.js
+- Upload the zipped backend package
+- Set the handler to `lambda.handler`
+- Configure environment variables:
+  - `EMAIL_USER`
+  - `EMAIL_PASS`
+  - `LEAD_RECEIVER_EMAIL`
+  - `CLIENT_ORIGIN`
+
+4. Create a Lambda Function URL and enable `CORS` if you want AWS to manage it at the edge as well.
+
+5. Set your frontend `REACT_APP_API_BASE_URL` to the Function URL.
+
+## GitHub auto-deploy to Lambda
+
+This repo now includes a GitHub Actions workflow at `.github/workflows/deploy-lambda.yml`.
+
+### What it does
+
+- Runs on pushes to `main` when backend files change
+- Installs backend dependencies from `server/package-lock.json`
+- Creates a deployment zip from `server/`
+- Uploads the zip to your AWS Lambda function
+
+### GitHub repository secrets
+
+Add these in `GitHub -> Settings -> Secrets and variables -> Actions`:
+
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_REGION`
+- `AWS_LAMBDA_FUNCTION_NAME`
+
+### IAM permissions
+
+Your AWS IAM user for GitHub Actions should have at least:
+
+- `lambda:UpdateFunctionCode`
+- `lambda:GetFunction`
+
+After that, every push to `main` that changes the backend will deploy the latest Lambda code automatically.
+
+### Notes
+
+- `CLIENT_ORIGIN` is now enforced by the backend CORS configuration.
+- The current rate limiter is in-memory, so it is best-effort only on Lambda. For stricter abuse protection later, add AWS WAF, API Gateway throttling, or a shared store.
